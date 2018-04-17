@@ -49,7 +49,7 @@ def train_Bi_LSTM(X, Y, epochs = 30, validation_split = 0.2, patience=20):
     
     history = LossHistory()
     earlyStopping = EarlyStopping(monitor='val_loss', min_delta=0.00001, patience=patience, verbose=0, mode='auto')
-    final_model.fit([X], Y, validation_split = 0.2, nb_epoch = epochs, callbacks=[history, earlyStopping])
+    final_model.fit([X], Y, validation_split = validation_split, nb_epoch = epochs, callbacks=[history, earlyStopping])
     
     return final_model, history
 
@@ -65,7 +65,7 @@ def train_2_Bi_LSTM_mask(X, Y, epochs = 30, validation_split = 0.2, patience=20)
 
     history = LossHistory()
     earlyStopping = EarlyStopping(monitor='val_loss', min_delta=0.00001, patience=patience, verbose=0, mode='auto')
-    model.fit(X, Y, validation_split = 0.2, nb_epoch = epochs, callbacks=[history, earlyStopping])
+    model.fit(X, Y, validation_split = validation_split, nb_epoch = epochs, callbacks=[history, earlyStopping])
 
     return model, history
 
@@ -84,6 +84,6 @@ def train_2_Bi_LSTM(X, Y, epochs = 30, validation_split = 0.2, patience=20):
     
     history = LossHistory()
     earlyStopping = EarlyStopping(monitor='val_loss', min_delta=0.00001, patience=patience, verbose=0, mode='auto')
-    final_model.fit([X], Y, validation_split = 0.2, nb_epoch = epochs, callbacks=[history, earlyStopping])
+    final_model.fit([X], Y, validation_split = validation_split, nb_epoch = epochs, callbacks=[history, earlyStopping])
     
     return final_model, history
